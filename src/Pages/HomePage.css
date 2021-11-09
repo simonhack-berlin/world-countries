@@ -34,17 +34,44 @@ h1 {
     padding-left: 00.5rem;
 }
 
+.select-container {
+    margin: 1rem 0;
+    width: 20%;
+    height: 40px;
+    font-size: 1.5em;
+    padding-left: 00.5rem;
+}
+
+/* @media (max-width: 1160px) {
+    .search-bar {
+        width: 30%;
+    }
+} */
+
 @media (max-width: 900px) {
     .countries-container {
         display: flex;
         flex-direction: column;
+        flex-wrap: nowrap;
     }
     .country-card {
         width: 100%;
         margin: 0.5rem 0;
+        text-align: center;
+        padding: 1.5rem;
     }
     .flag-img {
-        width: 70%;
+        width: 50%;
         height: auto;
+    }
+    .search-bar {
+        width: 50%;
+        font-size: 1em;
+        margin-right: 0.5rem;
+    }
+    .select-container {
+        width: 40%;
+        font-size: 1em;
+        margin-left: 0.5rem;
     }
 }

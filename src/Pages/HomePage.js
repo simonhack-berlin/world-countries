@@ -6,22 +6,26 @@ const HomePage = () => {
 const [countries, setCountries] = useState([]);
 const [loading, setLoading] = useState(true);
 const [countryName, setCountryName] = useState("");
+const [region, setRegion] = useState("");
+
+let API;
+
+if (region) {
+    API = `https://restcountries.com/v3.1/region/${region}`;
+}
+
+if (countryName) {
+    API = `https://restcountries.com/v2/name/${countryName}?fullText=true`;
+}
+
+else {
+    API = 'https://restcountries.com/v2/all';
+}
 
 useEffect(() => {
-    if (countryName) {
-axios
-.get(`https://restcountries.com/v2/name/${countryName}?fullText=true`)
-.then((res) => {
-    console.log(res.data);
-    setCountryName(res.data);
-})
-.then(() => setLoading(false))
-.catch((err) => {
-    console.log(err);
-});
-    } else {
+
         axios
-        .get('https://restcountries.com/v2/all')
+        .get(API)
         .then((res) => {
             console.log(res.data);
             setCountries(res.data);
@@ -30,13 +34,30 @@ axios
         .catch((err) => {
             console.log(err);
         });  
-    }
+    
 }, [] );
 
-const contryOnChange = (event) => {
+const contryNameOnChange = (event) => {
     console.log(event.target.value);
     setCountryName(event.target.value);
 };
+
+const contryRegionOnChange = (event) => {
+    console.log(event.target.value);
+    setRegion(event.target.value);
+};
+
+const filteredByName =  countries.filter((country) =>{
+    if (country.name.toLowerCase().includes(countryName.toLowerCase())) {
+        return country;
+    }
+ });
+
+ const filteredByRegion = countries.filter((country) =>{
+     if (country.region.toLowerCase().includes(region.toLowerCase())) {
+         return country;
+     }
+ });
 
 return ( 
     <>
@@ -45,18 +66,22 @@ return (
     className="search-bar"
     type="text" 
     placeholder="search for a country..." 
-    onChange={contryOnChange}
+    onChange={contryNameOnChange}
     />
+    <select className="select-container" onChange={contryRegionOnChange}>
+        <option value="">Filter by region</option>
+        <option value="Africa">Africa</option>
+        <option value="America">America</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
+    </select>
     </form>
     <div className="countries-container">
-{loading ? <div>Loading...</div> :  (
-    countries.filter((country) =>{
-       if (country.name.toLowerCase().includes(countryName.toLowerCase())) {
-           return country
-       }
-    })
+{loading ? <div>Loading...</div> : countryName ? (
+    filteredByName
     .map(country =>
-        <div className="country-card">
+        <div className="country-card" key={country.name}>
 <img src={country.flag} alt={country.name} className="flag-img" />
 <h1>{country.name}</h1>
 <p><b>Population:</b> {country.population}</p>
@@ -64,6 +89,26 @@ return (
 <p><b>Capital:</b> {country.capital}</p>
 </div>
     )
+    ) : region ? (
+        filteredByRegion
+        .map(country =>
+        <div className="country-card" key={country.name}>
+<img src={country.flag} alt={country.name} className="flag-img" />
+<h1>{country.name}</h1>
+<p><b>Population:</b> {country.population}</p>
+<p><b>Region:</b> {country.region}</p>
+<p><b>Capital:</b> {country.capital}</p>
+</div>
+    )
+    ) : countries
+    .map(country =>
+        <div className="country-card" key={country.name}>
+<img src={country.flag} alt={country.name} className="flag-img" />
+<h1>{country.name}</h1>
+<p><b>Population:</b> {country.population}</p>
+<p><b>Region:</b> {country.region}</p>
+<p><b>Capital:</b> {country.capital}</p>
+</div>
     )
  }
     </div>
