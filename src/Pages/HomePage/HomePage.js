@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './HomePage.css';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
 const [countries, setCountries] = useState([]);
@@ -15,11 +16,11 @@ if (region) {
 }
 
 if (countryName) {
-    API = `https://restcountries.com/v2/name/${countryName}?fullText=true`;
+    API = `https://restcountries.com/v3.1/name/{name}?fullText=true`;
 }
 
 else {
-    API = 'https://restcountries.com/v2/all';
+    API = 'https://restcountries.com/v3.1/all';
 }
 
 useEffect(() => {
@@ -48,7 +49,7 @@ const contryRegionOnChange = (event) => {
 };
 
 const filteredByName =  countries.filter((country) =>{
-    if (country.name.toLowerCase().includes(countryName.toLowerCase())) {
+    if (country.name.common.toLowerCase().includes(countryName.toLowerCase())) {
         return country;
     }
  });
@@ -81,40 +82,51 @@ return (
 {loading ? <div>Loading...</div> : countryName ? (
     filteredByName
     .map(country =>
-        <div className="country-card" key={country.name}>
-<img src={country.flag} alt={country.name} className="flag-img" />
-<h1>{country.name}</h1>
+    
+
+<Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
+<img src={country.flags.png} alt={country.name.common} className="flag-img" />
+<h1>{country.name.common}</h1>
 <p><b>Population:</b> {country.population}</p>
 <p><b>Region:</b> {country.region}</p>
 <p><b>Capital:</b> {country.capital}</p>
-</div>
+</Link>
+
+    
     )
     ) : region ? (
         filteredByRegion
         .map(country =>
-        <div className="country-card" key={country.name}>
-<img src={country.flag} alt={country.name} className="flag-img" />
-<h1>{country.name}</h1>
+
+
+<Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
+<img src={country.flags.png} alt={country.name.common} className="flag-img" />
+<h1>{country.name.common}</h1>
 <p><b>Population:</b> {country.population}</p>
 <p><b>Region:</b> {country.region}</p>
 <p><b>Capital:</b> {country.capital}</p>
-</div>
+</Link>
+
+
     )
     ) : countries
     .map(country =>
-        <div className="country-card" key={country.name}>
-<img src={country.flag} alt={country.name} className="flag-img" />
-<h1>{country.name}</h1>
+
+
+<Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
+<img src={country.flags.png} alt={country.name.common} className="flag-img" />
+<h1>{country.name.common}</h1>
 <p><b>Population:</b> {country.population}</p>
 <p><b>Region:</b> {country.region}</p>
 <p><b>Capital:</b> {country.capital}</p>
-</div>
+</Link>
+
+
     )
  }
     </div>
     </>
 )
-
-};
+}
 
 export default HomePage;

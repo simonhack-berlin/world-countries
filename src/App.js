@@ -1,11 +1,28 @@
-import HomePage from "./Pages/HomePage";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useRoutes,
+} from "react-router-dom";
+import Country from "./Pages/Country/Country";
+import HomePage from './Pages/HomePage/HomePage';
 
-function App() {
+const App = () => {
+  let routes = useRoutes([
+    { path: "/", element: <HomePage /> },
+    { path: "country/:name", element: <Country /> },
+    // ...
+  ]);
+  return routes;
+};
+
+const AppWrapper = () => {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <Router>
+      <App />
+    </Router>
   );
-}
+};
 
-export default App;
+export default AppWrapper;
