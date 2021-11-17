@@ -11,7 +11,26 @@
     width: 15%;
     text-decoration: none;
     color: black;
+    overflow: hidden;
+    transition: 
+    transform 750ms  cubic-bezier(.5, 0, .5, 1),
+    opacity 250ms linear;
 }
+
+.country-card:hover {
+    background-color: rgba(211, 211, 211, 0.884);
+}
+
+.country-card:focus {
+    position: relative;
+    z-index: 2;
+}
+
+.country-card:hover,
+.country-card:focus .country-card{
+    transform: scale(1.2);
+    /* opacity: .75; */
+} 
 
 h1 {
     font-size: 1.5em;

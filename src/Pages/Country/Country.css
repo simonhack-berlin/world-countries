@@ -1,0 +1,15 @@
+.description-container {
+    font-size: 1.5em;
+}
+
+@media (max-width: 600px) {
+    .description-container {
+        font-size: 1.2em;
+    }   
+}
+
+@media (max-width: 300px) {
+    .description-container {
+        font-size: 1em;
+    }   
+}

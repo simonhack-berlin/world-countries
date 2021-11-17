@@ -16,7 +16,7 @@ if (region) {
 }
 
 if (countryName) {
-    API = `https://restcountries.com/v3.1/name/{name}?fullText=true`;
+    API = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
 }
 
 else {
@@ -83,7 +83,6 @@ return (
     filteredByName
     .map(country =>
     
-
 <Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
 <img src={country.flags.png} alt={country.name.common} className="flag-img" />
 <h1>{country.name.common}</h1>
@@ -91,14 +90,12 @@ return (
 <p><b>Region:</b> {country.region}</p>
 <p><b>Capital:</b> {country.capital}</p>
 </Link>
-
-    
+  
     )
     ) : region ? (
         filteredByRegion
         .map(country =>
 
-
 <Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
 <img src={country.flags.png} alt={country.name.common} className="flag-img" />
 <h1>{country.name.common}</h1>
@@ -106,13 +103,11 @@ return (
 <p><b>Region:</b> {country.region}</p>
 <p><b>Capital:</b> {country.capital}</p>
 </Link>
-
 
     )
     ) : countries
     .map(country =>
 
-
 <Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
 <img src={country.flags.png} alt={country.name.common} className="flag-img" />
 <h1>{country.name.common}</h1>
@@ -120,7 +115,6 @@ return (
 <p><b>Region:</b> {country.region}</p>
 <p><b>Capital:</b> {country.capital}</p>
 </Link>
-
 
     )
  }
