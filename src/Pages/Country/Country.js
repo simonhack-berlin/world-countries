@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useNavigate, useParams } from 'react-router';
 import './Country.css';
 
@@ -17,7 +17,7 @@ const Country = () => {
     useEffect(() => {
   
       axios
-      .get('https://restcountries.com/v2/all')
+      .get('https://restcountries.com/v3.1/all')
       .then((res) => {
           console.log(res.data);
           setCountries(res.data);
@@ -31,14 +31,17 @@ const Country = () => {
 
 const My_Key = 'AIzaSyCc3zoz5TZaG3w2oF7IeR-fhxNXi8uywNk';
 
+const getCountry = countries.filter(country => country.name.common === name);
+const languages = getCountry.map(country => Object.values(country.languages));
+
 return (
     <>
     <button className="back-btn" onClick={goBack}>&#8592; Back</button>
     {loading ? <div>Loading...</div> : (
-        countries.filter(country => country.name === name).map((country, index) => (
+        getCountry.map((country, index) => (
         <div key={index} className="description-container">
-            {/* <h1>{country.altSpellings[1]}</h1> */}
-            <p><b>{country.name}</b> is a country in {country.subregion}, and the official language is {country.languages[0].name}.</p>
+            <h1>Learn more about {country.name.official} ({country.name.common}) {country.flag}</h1>
+            <p><b>{country.name.common}</b> is a country in {country.subregion}, and the official language is {languages}.</p>
             <p>With <b>{country.capital}</b> as capital, the country covers a total area of {country.area} km2 and has {country.population} inhabitants.</p>
             
     <div id="map-container">

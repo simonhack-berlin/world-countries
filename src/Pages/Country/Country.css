@@ -2,14 +2,36 @@
     font-size: 1.5em;
 }
 
+.back-btn {
+    margin-top: 20px;
+    width: 8%;
+    height: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .back-btn {
+        width: 15%;
+    }
+}
+
 @media (max-width: 600px) {
     .description-container {
         font-size: 1.2em;
     }   
 }
 
+@media (max-width: 450px) {
+    .back-btn {
+        width: 20%;
+    }
+}
+
 @media (max-width: 300px) {
     .description-container {
         font-size: 1em;
-    }   
+    }  
+    .back-btn {
+        width: 25%;
+    } 
 }
