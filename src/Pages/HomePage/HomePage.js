@@ -86,9 +86,9 @@ return (
 <Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
 <img src={country.flags.png} alt={country.name.common} className="flag-img" />
 <h1>{country.name.common}</h1>
-<p><b>Population:</b> {country.population}</p>
 <p><b>Region:</b> {country.region}</p>
-<p><b>Capital:</b> {country.capital}</p>
+{country.capital ? <p><b>Capital:</b> {country.capital}</p> : <p><b>Capital:</b> No capital</p>}
+<p><b>Population:</b> {country.population}</p>
 </Link>
   
     )
@@ -99,9 +99,9 @@ return (
 <Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
 <img src={country.flags.png} alt={country.name.common} className="flag-img" />
 <h1>{country.name.common}</h1>
-<p><b>Population:</b> {country.population}</p>
 <p><b>Region:</b> {country.region}</p>
-<p><b>Capital:</b> {country.capital}</p>
+{country.capital ? <p><b>Capital:</b> {country.capital}</p> : <p><b>Capital:</b> No capital</p>}
+<p><b>Population:</b> {country.population}</p>
 </Link>
 
     )
@@ -111,9 +111,9 @@ return (
 <Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
 <img src={country.flags.png} alt={country.name.common} className="flag-img" />
 <h1>{country.name.common}</h1>
-<p><b>Population:</b> {country.population}</p>
 <p><b>Region:</b> {country.region}</p>
-<p><b>Capital:</b> {country.capital}</p>
+{country.capital ? <p><b>Capital:</b> {country.capital}</p> : <p><b>Capital:</b> No capital</p>}
+<p><b>Population:</b> {country.population}</p>
 </Link>
 
     )
