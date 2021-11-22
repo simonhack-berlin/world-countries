@@ -33,7 +33,7 @@ const My_Key = 'AIzaSyCc3zoz5TZaG3w2oF7IeR-fhxNXi8uywNk';
 
 const getCountry = countries.filter(country => country.name.common === name);
 
-let languages = getCountry.map(country => !country.languages ? null : Object.keys(country.languages).length >= 2 ? (<span>, and the official languages are {Object.values(country.languages).toString().split(',').join(', ')}</span>) : (<span>, and the official language is {Object.values(country.languages).toString()}</span>) )
+let languages = getCountry.map(country => !country.languages ? null : Object.keys(country.languages).length === 2 ? (', and the official languages are ' + Object.values(country.languages).join(' and ')) : Object.keys(country.languages).length > 2 ? (', and the official languages are ' + Object.values(country.languages).slice(0, -1).join(', ') + ', and '+ Object.values(country.languages).slice(-1)) : (', and the official language is ' + Object.values(country.languages).toString()) );
 
 return (
     <>
