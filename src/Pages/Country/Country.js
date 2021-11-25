@@ -19,7 +19,7 @@ const Country = () => {
       axios
       .get('https://restcountries.com/v3.1/all')
       .then((res) => {
-          console.log(res.data);
+        //   console.log(res.data);
           setCountries(res.data);
       })
       .then(() => setLoading(false))
@@ -35,18 +35,28 @@ const getCountry = countries.filter(country => country.name.common === name);
 
 let languages = getCountry.map(country => !country.languages ? null : Object.keys(country.languages).length === 2 ? (', and the official languages are ' + Object.values(country.languages).join(' and ')) : Object.keys(country.languages).length > 2 ? (', and the official languages are ' + Object.values(country.languages).slice(0, -1).join(', ') + ', and '+ Object.values(country.languages).slice(-1)) : (', and the official language is ' + Object.values(country.languages).toString()) );
 
+const setHeight = () => {
+  let height;
+  if(window.innerHeight < 900) {
+     return height = '550px';
+  } else {
+    return height = window.innerHeight;
+  }
+};
+
 return (
     <>
     <button className="back-btn" onClick={goBack}>&#8592; Back</button>
     {loading ? <div>Loading...</div> : (
         getCountry.map((country, index) => (
         <div key={index} className="description-container">
+        <div className="description-txt">
         {country.name.official === country.name.common ? <h1>Learn more about {country.name.common} {country.flag}</h1> : <h1>Learn more about {country.name.official} ({country.name.common}) {country.flag}</h1>}
         {country.subregion ? <p><b>{country.name.common}</b> is a country in {country.subregion}{languages}.</p> : <p><b>{country.name.common}</b> is a country in {country.region}{languages}.</p>}
         {country.capital ? <p>With <b>{country.capital}</b> as capital, the country covers a total area of {country.area} km2 and has {country.population} inhabitants.</p> : <p>The country covers a total area of {country.area} km2 and has {country.population} inhabitants.</p>}
-            
+        </div>    
     <div id="map-container">
-      <iframe id="frame" frameBorder="0" width="100%" height="500px" src={`https://www.google.com/maps/embed/v1/place?key=${My_Key}&q=${country.latlng[0]},${country.latlng[1]}&zoom=6`}>
+      <iframe id="frame" frameBorder="0" width="100%" height={setHeight()} src={`https://www.google.com/maps/embed/v1/place?key=${My_Key}&q=${country.latlng[0]},${country.latlng[1]}&zoom=6`}>
       </iframe>
     </div>
     

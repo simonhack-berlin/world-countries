@@ -9,6 +9,10 @@
     cursor: pointer;
 }
 
+#map-container {
+    margin-top: 40px;
+}
+
 @media (max-width: 800px) {
     .back-btn {
         width: 15%;
@@ -25,6 +29,12 @@
     .back-btn {
         width: 20%;
     }
+}
+
+@media (max-width: 330px) {
+    .back-btn {
+        width: 30%;
+    } 
 }
 
 @media (max-width: 300px) {
