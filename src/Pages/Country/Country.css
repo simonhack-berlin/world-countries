@@ -1,16 +1,21 @@
 .description-container {
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 .back-btn {
     margin-top: 20px;
     width: 8%;
-    height: 30px;
+    height: 33px;
     cursor: pointer;
 }
 
 #map-container {
     margin-top: 40px;
+}
+
+#frame {
+    overflow-y: auto;
+    height: calc(100vh - 320px);
 }
 
 @media (max-width: 800px) {
