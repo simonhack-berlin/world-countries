@@ -1,3 +1,10 @@
+body {
+    background:url('../../img/amirali-mirhashemian-PZKe_hQSaJc-unsplash.jpg') rgba(5, 5, 5, 0.616);
+    background-size: cover;
+    background-blend-mode: multiply;
+    color: white;
+}
+
 .countries-container {
     display: flex;
     flex-wrap: wrap;
@@ -5,21 +12,26 @@
 }
 
 .country-card {
-    background-color: rgba(211, 211, 211, 0.37);
+    /* background-color: rgba(211, 211, 211, 0.37); */
+    background:url('../../img/globe.jpg') rgba(211, 211, 211, 0.521);
+    background-size: cover;
+    background-blend-mode: multiply;
+    
     margin: 0.5rem;
     padding: 2rem;
     width: 15%;
     text-decoration: none;
-    color: black;
+    /* color: black; */
+    color: white;
     overflow: hidden;
     transition: 
     transform 750ms  cubic-bezier(.5, 0, .5, 1),
     opacity 250ms linear;
 }
 
-.country-card:hover {
+/* .country-card:hover {
     background-color: rgba(211, 211, 211, 0.884);
-}
+} */
 
 .country-card:focus {
     position: relative;
