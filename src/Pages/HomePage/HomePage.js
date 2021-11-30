@@ -28,7 +28,7 @@ useEffect(() => {
         axios
         .get(API)
         .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             setCountries(res.data);
         })
         .then(() => setLoading(false))
@@ -79,7 +79,7 @@ return (
     </select>
     </form>
     <div className="countries-container">
-{loading ? <div>Loading...</div> : countryName ? (
+{loading ? <div style={{textAlign: 'center'}}><h1>Loading...</h1></div> : countryName ? (
     filteredByName
     .map(country =>
     
@@ -87,8 +87,8 @@ return (
 <img src={country.flags.png} alt={country.name.common} className="flag-img" />
 <h1>{country.name.common}</h1>
 <p><b>Region:</b> {country.region}</p>
-{country.capital ? <p><b>Capital:</b> {country.capital}</p> : <p><b>Capital:</b> No capital</p>}
-<p><b>Population:</b> {country.population}</p>
+{country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
+<p><b>{country.independent ? 'Indipendent' : 'Not indipendent' }</b></p>
 </Link>
   
     )
@@ -100,8 +100,8 @@ return (
 <img src={country.flags.png} alt={country.name.common} className="flag-img" />
 <h1>{country.name.common}</h1>
 <p><b>Region:</b> {country.region}</p>
-{country.capital ? <p><b>Capital:</b> {country.capital}</p> : <p><b>Capital:</b> No capital</p>}
-<p><b>Population:</b> {country.population}</p>
+{country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
+<p><b>{country.independent ? 'Indipendent' : 'Not indipendent' }</b></p>
 </Link>
 
     )
@@ -112,8 +112,8 @@ return (
 <img src={country.flags.png} alt={country.name.common} className="flag-img" />
 <h1>{country.name.common}</h1>
 <p><b>Region:</b> {country.region}</p>
-{country.capital ? <p><b>Capital:</b> {country.capital}</p> : <p><b>Capital:</b> No capital</p>}
-<p><b>Population:</b> {country.population}</p>
+{country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
+<p><b>{country.independent ? 'Indipendent' : 'Not indipendent' }</b></p>
 </Link>
 
     )
