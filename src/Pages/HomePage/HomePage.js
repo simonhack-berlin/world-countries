@@ -9,19 +9,7 @@ const [loading, setLoading] = useState(true);
 const [countryName, setCountryName] = useState("");
 const [region, setRegion] = useState("");
 
-let API;
-
-if (region) {
-    API = `https://restcountries.com/v3.1/region/${region}`;
-}
-
-if (countryName) {
-    API = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
-}
-
-else {
-    API = 'https://restcountries.com/v3.1/all';
-}
+let API = 'https://restcountries.com/v3.1/all';
 
 useEffect(() => {
 
