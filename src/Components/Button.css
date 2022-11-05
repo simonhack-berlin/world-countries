@@ -1,0 +1,28 @@
+.btn {
+    text-decoration: none;
+    cursor: pointer;
+    font: inherit;
+    background-color: #2093cc;;
+    border: 1px solid #2093cc;;
+    border-radius: 6px;
+    color: #b8effc;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+  
+.btn:hover,
+.btn:active {
+    background-color: #028caf;
+    border-color: #028caf;
+}
+
+.btn-container {
+    margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+    .btn-container {
+        margin-bottom: 10px;
+    }
+}

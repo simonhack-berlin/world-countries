@@ -1,8 +1,5 @@
 body {
-    background:url('../../img/amirali-mirhashemian-PZKe_hQSaJc-unsplash.jpg') rgba(5, 5, 5, 0.616);
-    background-size: cover;
-    background-blend-mode: multiply;
-    color: white;
+    background-color: #dfdfdf;
 }
 
 .countries-container {
@@ -12,37 +9,23 @@ body {
 }
 
 .country-card {
-    /* background-color: rgba(211, 211, 211, 0.37); */
-    background:url('../../img/globe.jpg') rgba(211, 211, 211, 0.521);
-    background-size: cover;
-    background-blend-mode: multiply;
-    
+    background-color: rgba(211, 211, 211, 0.984);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     margin: 0.5rem;
     padding: 2rem;
     width: 15%;
     text-decoration: none;
-    /* color: black; */
-    color: white;
-    overflow: hidden;
-    transition: 
-    transform 750ms  cubic-bezier(.5, 0, .5, 1),
-    opacity 250ms linear;
+    color: #000000;
 }
 
-/* .country-card:hover {
-    background-color: rgba(211, 211, 211, 0.884);
-} */
-
-.country-card:focus {
-    position: relative;
-    z-index: 2;
+.country-name {
+    min-height: 55px;
 }
 
-.country-card:hover,
-.country-card:focus .country-card{
-    transform: scale(1.2);
-    /* opacity: .75; */
-} 
+.country-details {
+    min-height: 30px;
+}
 
 h1 {
     font-size: 1.5em;
@@ -94,14 +77,22 @@ h1 {
         flex-wrap: nowrap;
     }
     .country-card {
-        width: 100%;
-        margin: 0.5rem 0;
+        width: 65%;
+        margin: 0.7rem auto;
         text-align: center;
         padding: 1.5rem;
     }
     .flag-img {
         width: 50%;
         height: auto;
+    }
+
+    .country-name {
+        min-height: 0;
+    }
+    
+    .country-details {
+        min-height: 0;
     }
     .search-bar {
         width: 50%;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './HomePage.css';
-import { Link } from 'react-router-dom';
+import Button from '../../Components/Button';
 
 const HomePage = () => {
 const [countries, setCountries] = useState([]);
@@ -9,7 +9,7 @@ const [loading, setLoading] = useState(true);
 const [countryName, setCountryName] = useState("");
 const [region, setRegion] = useState("");
 
-let API = 'https://restcountries.com/v3.1/all';
+const API = 'https://restcountries.com/v3.1/all';
 
 useEffect(() => {
 
@@ -27,12 +27,12 @@ useEffect(() => {
 }, [] );
 
 const contryNameOnChange = (event) => {
-    console.log(event.target.value);
+    //console.log(event.target.value);
     setCountryName(event.target.value);
 };
 
 const contryRegionOnChange = (event) => {
-    console.log(event.target.value);
+   // console.log(event.target.value);
     setRegion(event.target.value);
 };
 
@@ -71,38 +71,53 @@ return (
     filteredByName
     .map(country =>
     
-<Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
-<img src={country.flags.png} alt={country.name.common} className="flag-img" />
-<h1>{country.name.common}</h1>
-<p><b>Region:</b> {country.region}</p>
-{country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
-<p><b>{country.independent ? 'Indipendent' : 'Not indipendent' }</b></p>
-</Link>
+<div key={country.name.common} className="country-card">
+    <img src={country.flags.png} alt={country.name.common} className="flag-img" />
+    <div className="country-name">
+        <h1>{country.name.common}</h1>
+    </div>
+    <div className="country-details">
+        <p><b>Region:</b> {country.region}</p>
+        {country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
+        <p><b>{country.independent ? 'Independent' : 'Not independent' }</b></p>
+    </div>
+    <Button link={`/country/${country.name.common}`}>More Details</Button>
+</div>
   
     )
     ) : region ? (
         filteredByRegion
         .map(country =>
 
-<Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
-<img src={country.flags.png} alt={country.name.common} className="flag-img" />
-<h1>{country.name.common}</h1>
-<p><b>Region:</b> {country.region}</p>
-{country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
-<p><b>{country.independent ? 'Indipendent' : 'Not indipendent' }</b></p>
-</Link>
+<div key={country.name.common} className="country-card">
+    <img src={country.flags.png} alt={country.name.common} className="flag-img" />
+    <div className="country-name">
+        <h1>{country.name.common}</h1>
+    </div>
+    <div className="country-details">
+        <p><b>Region:</b> {country.region}</p>
+        {country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
+        <p><b>{country.independent ? 'Independent' : 'Not independent' }</b></p>
+    </div>
+    <Button link={`/country/${country.name.common}`}>More Details</Button>
+</div>
 
     )
     ) : countries
     .map(country =>
 
-<Link to={`/country/${country.name.common}`} key={country.name.common} className="country-card">
-<img src={country.flags.png} alt={country.name.common} className="flag-img" />
-<h1>{country.name.common}</h1>
-<p><b>Region:</b> {country.region}</p>
-{country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
-<p><b>{country.independent ? 'Indipendent' : 'Not indipendent' }</b></p>
-</Link>
+<div key={country.name.common} className="country-card">
+    <img src={country.flags.png} alt={country.name.common} className="flag-img" />
+    <div className="country-name">
+        <h1>{country.name.common}</h1>
+    </div>
+    <div className="country-details">
+        <p><b>Region:</b> {country.region}</p>
+        {country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
+        <p><b>{country.independent ? 'Independent' : 'Not independent' }</b></p>
+    </div>
+    <Button link={`/country/${country.name.common}`}>More Details</Button>
+</div>
 
     )
  }
