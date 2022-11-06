@@ -17,19 +17,20 @@ body {
     width: 15%;
     text-decoration: none;
     color: #000000;
+    text-align: center;
 }
 
 .country-name {
     min-height: 55px;
 }
 
-.country-details {
-    min-height: 30px;
-}
-
-h1 {
+.country-name > h1 {
     font-size: 1.5em;
     margin-top: 2.5rem;
+}
+
+.country-details {
+    min-height: 30px;
 }
 
 .flag-img {
@@ -79,7 +80,6 @@ h1 {
     .country-card {
         width: 65%;
         margin: 0.7rem auto;
-        text-align: center;
         padding: 1.5rem;
     }
     .flag-img {
