@@ -1,12 +1,14 @@
+.country {
+    width: 90%;
+    margin: 1px auto;
+}
+
 .description-container {
     font-size: 2em;
 }
 
-.back-btn {
-    margin-top: 20px;
-    width: 8%;
-    height: 33px;
-    cursor: pointer;
+.img-container {
+    margin-top: 1em;
 }
 
 #map-container {
@@ -18,35 +20,18 @@
     height: calc(100vh - 320px);
 }
 
-@media (max-width: 800px) {
-    .back-btn {
-        width: 15%;
-    }
-}
-
 @media (max-width: 600px) {
     .description-container {
         font-size: 1.2em;
     }   
-}
 
-@media (max-width: 450px) {
-    .back-btn {
-        width: 20%;
+    .img-container > img {
+        height: 100px;
     }
-}
-
-@media (max-width: 330px) {
-    .back-btn {
-        width: 30%;
-    } 
 }
 
 @media (max-width: 300px) {
     .description-container {
         font-size: 1em;
     }  
-    .back-btn {
-        width: 25%;
-    } 
 }
