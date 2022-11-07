@@ -11,7 +11,7 @@ import HomePage from './Pages/HomePage/HomePage';
 const App = () => {
   let routes = useRoutes([
     { path: "/", element: <HomePage /> },
-    { path: "country/:name", element: <Country /> },
+    { path: "/:name", element: <Country /> },
     // ...
   ]);
   return routes;

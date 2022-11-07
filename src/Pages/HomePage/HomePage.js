@@ -81,7 +81,7 @@ return (
         {country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
         <p><b>{country.independent ? 'Independent' : 'Not independent' }</b></p>
     </div>
-    <Button link={`/country/${country.name.common}`}>More Details</Button>
+    <Button link={`/${country.name.common}`}>More Details</Button>
 </div>
   
     )
@@ -99,7 +99,7 @@ return (
         {country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
         <p><b>{country.independent ? 'Independent' : 'Not independent' }</b></p>
     </div>
-    <Button link={`/country/${country.name.common}`}>More Details</Button>
+    <Button link={`/${country.name.common}`}>More Details</Button>
 </div>
 
     )
@@ -116,7 +116,7 @@ return (
         {country.capital ? <p><b>Capital:</b> {country.capital.join(', ')}</p> : <p><b>Capital:</b> No capital</p>}
         <p><b>{country.independent ? 'Independent' : 'Not independent' }</b></p>
     </div>
-    <Button link={`/country/${country.name.common}`}>More Details</Button>
+    <Button link={`/${country.name.common}`}>More Details</Button>
 </div>
 
     )
