@@ -9,7 +9,7 @@ body {
 }
 
 .country-card {
-    background-color: rgba(211, 211, 211, 0.984);
+    background: linear-gradient(45deg, hsl(206deg 34% 82%), transparent);
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     margin: 0.5rem;
