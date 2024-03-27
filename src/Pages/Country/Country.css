@@ -16,7 +16,8 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin: 20px;
-  font-size: 2em;
+  font-size: 25px;
+  line-height: 1.5;
 }
 
 #map-container {
@@ -32,6 +33,10 @@
 }
 
 @media (max-width: 768px) {
+  .description-container {
+    grid-template-columns: 1fr;
+  }
+
   .img-container,
   .description-txt {
     grid-column: 1 / -1;
