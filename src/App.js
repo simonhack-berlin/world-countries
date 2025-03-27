@@ -1,17 +1,12 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useRoutes,
-} from "react-router-dom";
+import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import Country from "./Pages/Country/Country";
-import HomePage from './Pages/HomePage/HomePage';
+import HomePage from "./Pages/HomePage/HomePage";
 
 const App = () => {
   let routes = useRoutes([
     { path: "/", element: <HomePage /> },
-    { path: "/:name", element: <Country /> },
+    { path: "/:countryCode", element: <Country /> },
     // ...
   ]);
   return routes;

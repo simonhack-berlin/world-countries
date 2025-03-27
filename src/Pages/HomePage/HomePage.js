@@ -34,17 +34,16 @@ const HomePage = () => {
     setRegion(event.target.value);
   };
 
-  const filteredByName = countries.filter((country) => {
-    if (country.name.common.toLowerCase().includes(countryName.toLowerCase())) {
-      return country;
-    }
-  });
+  const filteredByName = countries.filter(
+    (country) =>
+      country.name.common.toLowerCase().includes(countryName.toLowerCase()) &&
+      country
+  );
 
-  const filteredByRegion = countries.filter((country) => {
-    if (country.region.toLowerCase().includes(region.toLowerCase())) {
-      return country;
-    }
-  });
+  const filteredByRegion = countries.filter(
+    (country) =>
+      country.region.toLowerCase().includes(region.toLowerCase()) && country
+  );
 
   return (
     <>
@@ -165,7 +164,7 @@ const HomePage = () => {
                   </b>
                 </p>
               </div>
-              <Button link={`/${country.name.common}`}>More Details</Button>
+              <Button link={`/${country.cca2}`}>More Details</Button>
             </div>
           ))
         )}

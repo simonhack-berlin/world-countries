@@ -21,7 +21,7 @@
 }
 
 #map-container {
-  margin-top: 40px;
+  margin-top: 25px;
   grid-column: 1 / -1;
 }
 
@@ -32,9 +32,20 @@
   max-height: 450px;
 }
 
+.borders {
+  margin-top: 25px;
+  grid-column: 1 / -1;
+}
+
+.border-item {
+  color: #000;
+  margin-right: 0.5rem;
+}
+
 @media (max-width: 768px) {
   .description-container {
     grid-template-columns: 1fr;
+    font-size: 20px;
   }
 
   .img-container,
