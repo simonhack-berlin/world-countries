@@ -16,6 +16,7 @@ const Country = () => {
   };
 
   useEffect(() => {
+    setLoading(true)
     axios
       .get("https://restcountries.com/v3.1/alpha/" + countryCode)
       .then((res) => {
