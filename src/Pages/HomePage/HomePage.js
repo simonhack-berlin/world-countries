@@ -9,7 +9,7 @@ const HomePage = () => {
   const [countryName, setCountryName] = useState("");
   const [region, setRegion] = useState("");
 
-  const API = "https://restcountries.com/v3.1/all";
+  const API = "https://restcountries.com/v3.1/all?fields=name,flags,region,capital,indipendent,cca2";
 
   useEffect(() => {
     axios
